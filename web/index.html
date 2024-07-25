@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ComfyUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="./lib/litegraph.css" />
+		<link rel="stylesheet" type="text/css" href="./style.css" />
+		<link rel="stylesheet" type="text/css" href="./user.css" />
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap-grid.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap-reboot.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap-utilities.css"/>
+		<link rel="stylesheet" type="text/css" href="./icons/font/bootstrap-icons.css"/>	
+		<script type="text/javascript" src="./lib/litegraph.core.js"></script>
+		<script type="text/javascript" src="./lib/litegraph.extensions.js" defer></script>
+		<script type="text/javascript" src="./extend/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript" src="./extend/json2.min.js"></script>
+		<script type="text/javascript" src="./extend/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./extend/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="./extend/busyLoad.mini.js"></script>
+		<script type="text/javascript" src="./util/notify.js"></script>
+		<script type="module">
+			import { app } from "./scripts/app.js";
+			await app.setup();
+			window.app = app;
+			window.graph = app.graph;
+		</script>
+	</head>
+	<body class="litegraph">
+
+	<script type="text/javascript">
+		$.busyLoadSetup({
+			animation: false,
+			background: "rgba(255, 255, 255,100)",
+			image: "./img/loader.gif"
+		});
+		$.busyLoadFull("show");
+	</script>
+		<div class="modal fade" id="accountLoginModalToggle" aria-hidden="true" tabindex="-1" data-bs-backdrop="static">
+			<div class="modal-dialog modal-dialog-centered">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h1 class="modal-title fs-5" id="accountLoginModalToggleLabel"></h1>
+				</div>
+				<div class="modal-body">
+					<span class="text-danger" id="account-login-text-span"></span>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-primary" id="index-account-login-btn">Account login</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="modal fade" id="centeredModalToggle" tabindex="-1" aria-labelledby="centeredModalCenterTitle" data-bs-backdrop="static">
+			<div class="modal-dialog modal-dialog-centered">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h1 class="modal-title fs-5" id="centeredModalToggleLabel">Kind tips</h1>
+				</div>
+				<div class="modal-body align-self-center">
+					<img src="../img/server.gif" id="centered-img" width="80px"/>
+					<span id="centered-text-span"></span>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-primary" id="centered-confirm-btn">Confirm</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+			  <div class="modal fade" id="loading-modal"  tabindex="-1" aria-labelledby="loading-modal-title" data-bs-backdrop="static">
+			  <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable">
+				  <div class="modal-content">
+					  <div class="modal-body align-self-center"  style="text-align: center;">
+						  <img src="../img/loading.gif"/>
+						  <br>
+						  <span class="align-self-center" id="loading-text-span"></span>
+					  </div>
+				  </div>
+			  </div>
+			  </div>
+			  <div class="modal fade modal-sheet p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin" data-bs-backdrop="static">
+				<div class="modal-dialog" role="document">
+				  <div class="modal-content rounded-4 shadow">
+					<div class="modal-header p-5 pb-4 border-bottom-0">
+						<h2 class="mb-0 fs-3">Online professional-grade AI painting</h2>
+						<h6>CMDMAX ComfyUI<span style="color: #f90b21;">(v20240723.1819)</span><br><a href="https://cmdmax.ai" class="text-light-emphasis" target="_blank">cmdmax.ai</a></h6>
+					</div>
+					<div class="modal-body p-5 pt-0">
+					  <form class="row g-3 needs-validation" novalidate>
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="floatingLoginAccount" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+								<div class="invalid-feedback" id="floatingLoginAccount-invalid-feedback">
+								  Please fill in this field
+								</div>
+							<label for="floatingLoginAccount">username</label>
+						</div>
+						<div class="form-floating mb-3">
+						  <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" required>
+							  <div class="invalid-feedback"  id="floatingPassword-invalid-feedback">
+								  Please fill in this field
+							  </div>
+						  <label for="floatingPassword">password</label>
+						</div>
+						<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" id="index-login-button">
+							<span id="index-login-span">Login</span>
+							<span id="index-login-icon" class="spinner-border spinner-border-sm visually-hidden" role="status" aria-hidden="true"></span>
+							<span id="index-login-loading" class="visually-hidden">Loading...</span>
+						</button>
+						<small class="text-body-secondary">To contact us, please email admin@cmdmax.com</small>
+						<hr class="my-4">
+						By clicking Login, you agree to the terms of use.
+						<button class="w-100 py-2 mb-2 btn btn-outline-danger rounded-3" id="terms-of-use" type="button">
+						  <svg class="bi me-1" width="16" height="16"><embed src="../icons/icons/exclamation-triangle.svg" type="image/svg+xml"/></svg>
+						  Terms of use
+						</button>
+						<button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" id="sign-up-with-SCSIM" type="button">
+						  <svg class="bi me-1" width="16" height="16"><embed src="../icons/icons/globe-asia-australia.svg" type="image/svg+xml"/></svg>
+						  Sign up with SCSIM
+						</button>
+							  <div class="container text-center">
+								<div class="row align-items-start">
+								  <div class="col">
+									<a href="##" id="privacy-policy" class="text-danger-emphasis">Privacy Policy</a>
+									  <a href="##" id="gun-license" class="text-info-emphasis">GUN License</a>
+								  </div>
+								  <div class="col">
+									<a href="https://www.cmdmax.com/forum/" class="text-light-emphasis" target="_blank">community</a>
+											<div class="horizontal-container">
+												<a href="https://cmdmax.ai/download/aipixelpro" class="text-light-emphasis" target="_blank">
+													<img src="./img/android_logo.png" id="android_logo" style="width: 30px;"/>
+													<span class="glow-text" >AIPixelPro</span>
+												</a>
+											</div>
+								  </div>
+								  <div class="col">
+									<img src="./img/chrome_browser.png" id="chrome_browser" style="width: 60px;"/>
+									  <img src="./img/edge_browser.png" id="edge_browser" style="width: 60px;"/>
+								  </div>
+								</div>
+							  </div>
+					  </form>
+					</div>
+				  </div>
+				</div>
+			  </div>
+		  <div class="modal fade" id="modalFullscreen" tabindex="-1" aria-labelledby="modalFullscreenLabel" aria-hidden="true">
+			<div class="modal-dialog modal-fullscreen">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h1 class="modal-title fs-4" id="modalFullscreenLabel">
+				  </h1>
+				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="full-screen-modal-body">
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-warning" data-bs-dismiss="modal">I agree to the Terms of Use</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  
+		<div id="comfy-user-selection" class="comfy-user-selection" style="display: none;">
+			<main class="comfy-user-selection-inner">
+				<h1>ComfyUI</h1>
+				<form>
+					<section>
+						<label>New user:
+							<input placeholder="Enter a username" />
+						</label>
+					</section>
+					<div class="comfy-user-existing">
+						<span class="or-separator">OR</span>
+						<section>
+							<label>
+								Existing user:
+								<select>
+									<option hidden disabled selected value> Select a user </option>
+								</select>
+							</label>
+						</section>
+					</div>
+					<footer>
+						<span class="comfy-user-error">&nbsp;</span>
+						<button class="comfy-btn comfy-user-button-next">Next</button>
+					</footer>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>

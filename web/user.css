@@ -1,0 +1,16 @@
+/* Put custom styles here */
+.horizontal-container {
+    display: flex;
+    align-items: center;
+}
+.horizontal-container a {
+    text-decoration: none;
+    color: inherit;
+}
+.horizontal-container img {
+    margin-right: 2px;
+}
+.glow-text {
+    color: #CC3300;
+    text-decoration: underline;
+}
