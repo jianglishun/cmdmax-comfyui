@@ -32,6 +32,7 @@ from comfy.login_validate import LoginValidate
 from jwt_util import JWTUtil
 from datetime import timedelta
 
+# Created by wangminrui2022 on 2024-05-19.
 class BinaryEventTypes:
     PREVIEW_IMAGE = 1
     UNENCODED_PREVIEW_IMAGE = 2

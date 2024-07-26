@@ -9,6 +9,7 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
+# Created by wangminrui2022 on 2024-05-19.
 class JWTUtil(object):
 
     def __init__(self):
