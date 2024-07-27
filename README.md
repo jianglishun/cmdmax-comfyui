@@ -1,7 +1,7 @@
 # cmdmax-comfyui
 This project successfully solved various challenges in the field of computer image processing, including image cutting, synthesis, and filter application. In the past, these tasks often relied on professional image processing software such as Photoshop. However, with our innovation, the same function can now be achieved efficiently and conveniently through a professional online AI drawing platform. This progress marks a major leap in image processing technology and provides users with a more intuitive and easy-to-use operating experience.
 
-[![NetFlix on UWP](https://res.cloudinary.com/marcomontalbano/image/upload/v1587315555/video_to_markdown/images/youtube--2qqYywttue4-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/tFHku_1iA6c "Online professional-grade AI painting-cmdmax comfyui github")
+[![NetFlix on UWP](https://github.com/jianglishun/cmdmax-comfyui/blob/main/web/img/logo3-50.jpg)](https://youtu.be/tFHku_1iA6c "Online professional-grade AI painting-cmdmax comfyui github")
 
 
 https://cmdmax.ai
